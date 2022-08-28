@@ -11,6 +11,9 @@ public class PrinterAppl {
         executeThreads(threads);
     }
 
+
+
+
     public static Printer[] createPrinters(int amountOfPrinters, int amountOfNumbers, int portion) {
         Printer[] printers = new Printer[amountOfPrinters];
         for (int i = 0; i < printers.length; i++) {
