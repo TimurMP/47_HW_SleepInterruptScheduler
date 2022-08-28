@@ -13,6 +13,14 @@ public class Printer implements Runnable{
 
     @Override
     public void run() {
+
+        try {
+            Thread.sleep(Long.MAX_VALUE);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
         int count = numberAmount/portion;
 
         for (int i = 0; i < count; i++) {
