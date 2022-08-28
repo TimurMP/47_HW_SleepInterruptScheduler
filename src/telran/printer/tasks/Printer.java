@@ -4,7 +4,6 @@ public class Printer implements Runnable {
     int numberToPrint;
     int numberAmount;
     int portion;
-
     Thread nextThread;
 
 
