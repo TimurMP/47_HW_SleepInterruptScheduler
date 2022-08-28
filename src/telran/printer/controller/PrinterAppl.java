@@ -11,27 +11,48 @@ public class PrinterAppl {
         for (int i = 0; i < threads.length; i++) {
             printers[i] = new Printer(i+1, 100,10);
             threads[i] = new Thread(printers[i]);
-            threads[i].start();
+            threads[i].setName("Thread" + (i+1));
+
+
         }
+
+        for (int i = 0; i < printers.length; i++) {
+            if (i == printers.length-1){
+
+                printers[i].setNextThread(threads[0]);
+                break;
+            }
+            printers[i].setNextThread(threads[i+1]);
+
+        }
+
 
         for (int i = 0; i < threads.length; i++) {
-            threads[i].interrupt();
+            threads[i].start();
+            if (i == 0){
+                threads[i].interrupt();
+            }
+
 
         }
 
+//        for (int i = 0; i < printers.length; i++) {
+//            System.out.println(printers[i]);
+//
+//        }
 
-//        Printer printer = new Printer(1, 100, 10);
-//        Thread thread = new Thread(printer);
-//        Printer printer2 = new Printer(2, 100, 10);
-//        Thread thread2 = new Thread(printer2);
-//
-//        thread.start();
-//        thread2.start();
-//
-//        thread.interrupt();
-//        thread2.interrupt();
-//        thread.interrupt();
-//        thread2.interrupt();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

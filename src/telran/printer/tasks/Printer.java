@@ -1,9 +1,16 @@
 package telran.printer.tasks;
 
-public class Printer implements Runnable{
+public class Printer implements Runnable {
     int numberToPrint;
     int numberAmount;
     int portion;
+
+    Thread nextThread;
+
+
+    public void setNextThread(Thread nextThread) {
+        this.nextThread = nextThread;
+    }
 
     public Printer(int numberToPrint, int numberAmount, int portion) {
         this.numberToPrint = numberToPrint;
@@ -13,11 +20,7 @@ public class Printer implements Runnable{
 
     @Override
     public void run() {
-
-
-
-
-        int count = numberAmount/portion;
+        int count = numberAmount / portion;
 
         for (int i = 0; i < count; i++) {
             try {
@@ -28,16 +31,22 @@ public class Printer implements Runnable{
 
                 }
                 System.out.println();
+                nextThread.interrupt();
 
             }
 
 
-
-
         }
+    }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Printer{" +
+                "numberToPrint=" + numberToPrint +
+                ", numberAmount=" + numberAmount +
+                ", portion=" + portion +
+                ", nextThread=" + nextThread.getName() +
+                '}';
     }
 }
