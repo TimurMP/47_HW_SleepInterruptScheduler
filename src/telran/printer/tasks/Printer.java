@@ -21,21 +21,16 @@ public class Printer implements Runnable {
     @Override
     public void run() {
         int count = numberAmount / portion;
-
         for (int i = 0; i < count; i++) {
             try {
                 Thread.sleep(Long.MAX_VALUE);
             } catch (InterruptedException e) {
                 for (int j = 0; j < portion; j++) {
                     System.out.print(numberToPrint);
-
                 }
                 System.out.println();
                 nextThread.interrupt();
-
             }
-
-
         }
     }
 

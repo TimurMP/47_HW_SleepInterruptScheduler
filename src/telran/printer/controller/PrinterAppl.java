@@ -5,11 +5,11 @@ import telran.printer.tasks.Printer;
 public class PrinterAppl {
 
     public static void main(String[] args) {
-        Printer[] printers = new Printer[2];
+        Printer[] printers = new Printer[3];
         Thread[] threads = new  Thread[printers.length];
 
         for (int i = 0; i < threads.length; i++) {
-            printers[i] = new Printer(i+1, 100,10);
+            printers[i] = new Printer(i+1, 50,10);
             threads[i] = new Thread(printers[i]);
             threads[i].setName("Thread" + (i+1));
 
